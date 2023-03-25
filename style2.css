@@ -1,0 +1,86 @@
+*{margin: 0; padding: 0;  font-family: 'Open Sans', sans-serif;} /*applies to everything*/
+
+.header{width: 100%; height:100vh; /*relative to the height of the browser's window size*/ background-image: url(images/homepage.jpeg); background-size: 100%; background-repeat: no-repeat; /*background image only appears once*/ background-position:center;}
+
+.logo{width: 180px; cursor: pointer;}
+
+/*navigation bar*/
+.Navigation-Bar{width: 85%; margin: auto; padding: 35px 0; display: flex; align-items: center; justify-content: space-between; /*space between the logo and nav links*/} 
+
+.Navigation-Bar ul li{list-style:none; /*remove bullets*/ display: inline-block; /*display links horizontally*/ margin: 0 20px; position: relative;} 
+
+.Navigation-Bar ul li a{text-decoration: none; color: #fff;}
+
+.Navigation-Bar ul li::after{content: ''; /*none*/ height: 3px; /*thickness of the underline*/ width: 0; background: #21c3ef; position: absolute; bottom: -8px; /*space between the underline and text*/ transition: 0.6s;} /*duration of the transition, the higher the number, the slower it looks*/
+
+.Navigation-Bar ul li:hover::after{width: 100%;} 
+
+ /*homepage introduction text*/ 
+.text{width: 100%;position: absolute; top:50%; transform: translateY(-50%); /*repositions an element vertically*/ text-align: center; color: #fff;}
+.text h1{font-size: 70px; margin-top: 80px;}
+.text p{margin: 20px auto; font-weight: 100; line-height: 25px;}
+
+/*all buttons*/
+button{width: 200px; padding: 15px 0; text-align: center; margin: 20px 10px; border-radius: 25px; /*rounded rectangle*/ font-weight: bold; border: 2px solid #21c3ef; background: #21c3ef; color: #fff; cursor: pointer; position: relative; overflow: hidden;} 
+button:hover{background: transparent; left: 0; bottom: 0; transition: 0.6s;}
+
+/*dark blue background/container*/
+.background{width: 100%; height: 100%; background-color: #1074b0; background-size: 100%; background-position:center;}
+
+/*container with centering*/
+.second2{ padding-top:85px; background-color:#1074b0; display: flex; justify-content: center; align-items: center; font: color white; padding-bottom: 85px;}
+
+.second2 img{width: 75%;}
+.second2 tr{color: white; text-align: center;}
+.second2 td{font-size: 30px; padding: 15px;}
+.second2 button{font-size: 15px;}
+.second2 h1{font-size: 70px; color: white;}
+.second2 h2{color:white;}
+.second2 a{text-decoration: none;}
+.second2 h1:hover, h2:hover{color: #21c3ef;}
+
+#video-style{border: 5px solid white; width: 800px; height: 800px;} /*video styling*/
+
+/*music page, details of the albums*/ 
+.details{float: left; position:relative; padding-left: 55%; margin-top: 100px;}
+
+.details ul{display: inline-block;}
+.details li{color: white; list-style-type: none;}
+.details h1{color: white; font-size: 70px;} 
+.details h3{font-size: 30px; color: white;}
+
+/*Tour page table*/
+.taab{float: left; position:relative; padding-left: 55%; margin-top: 70px; color: white; margin-left: 30px;} 
+.taab h1{font-size: 70px;}
+#bttn{margin-left: 230px;} /*tour page button*/
+.tab1 table, th, td {color:white; padding: 10px; padding-right: 40px; text-align: center;} 
+
+/*footer in all pages*/
+.social{width: 45px;} /*social media icons in the footer*/	
+.footer{background-color: #21c3ef; width:100%;  border-top: 5px solid white; display: flex; justify-content: center; align-items: center;}
+.footer p{color: white; font-size: 22px;} 
+.footer a{text-decoration: none;} /*remove underline*/
+
+.pic{float:left; position: absolute;}  /*first album*/
+.pic img, video{border: solid 5px white; margin-left: 100px; width: 800px; margin-top:10px;}
+
+.info{float: left; position: absolute; margin-left: 53%; padding-top: 20px; color: white; line-height: 150%;} /*table used in about page*/
+
+.pic2{float: left; position: absolute; padding-top: 100px;} /*second and third album*/
+.pic2 img{border: solid 5px white; margin-left: 100px; width: 800px;}
+
+.heading{color: #21c3ef; font-size: 70px; text-align: center; border: white solid 5px; background-color: #1074b0;}/*headings for reviews and store*/
+
+.break{background-color: #1074b0;} /*coloring the br tags' background*/
+
+.reviews{border: white 5px solid; padding: 20px; background-color: #21c3ef;}
+.reviews input, textarea{padding: 10px; border: 2px solid #1074b0; color: #1074b0;}
+.reviews h3{color: #1074b0;}
+
+/*buttons used in forms*/
+#rb{ border: 5px solid white; background-color: #1074b0; padding: 10px; color: white; font-size: 20px;}
+#rb:hover{cursor: pointer; background-color: #21c3ef;}
+
+#orders{margin-left: 40%; margin-top: 10px;} /*table used in cart*/
+
+input {text-align: center;} /*center all the input text*/

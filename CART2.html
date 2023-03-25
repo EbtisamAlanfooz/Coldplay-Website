@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <title>CART</title>
+    <link rel="stylesheet" href="style2.css">
+
+    <script type="text/javascript">
+
+        function orderform(){
+
+//Create variables and collect data using their id
+                var item = document.getElementById("item").value;
+                var price = document.getElementById("price").value;
+                var email = document.getElementById("email").value;
+                var address = document.getElementById("address").value;
+                var number = document.getElementById("number").value;
+                var date = document.getElementById("date").value;
+                var name = document.getElementById("name").value;
+                var CVV = document.getElementById("CVV").value;
+                var quantity = document.getElementById("quantity").value;
+
+//Save collected data in sessionStorage when submit button is clicked
+                sessionStorage.setItem("item",item);
+                sessionStorage.setItem("price",price);
+                sessionStorage.setItem("email", email);
+                sessionStorage.setItem("address", address);
+                sessionStorage.setItem("number", number);
+                sessionStorage.setItem("date", date);
+                sessionStorage.setItem("name", name);
+                sessionStorage.setItem("CVV", CVV);
+                sessionStorage.setItem("quantity", quantity);
+                
+
+                alert("Order placed successfully") //confirmation
+
+//Clear input after submission
+                document.getElementById("item").value = ""
+                document.getElementById("price").value = ""
+                document.getElementById("email").value = ""
+                document.getElementById("address").value = ""
+                document.getElementById("number").value = ""
+                document.getElementById("date").value = ""
+                document.getElementById("name").value = ""
+                document.getElementById("CVV").value = ""
+                document.getElementById("quantity").value = ""
+                document.getElementById("total").value = ""
+            }
+
+//Retreive data stored in sessionStorage, about the last order
+            function read()
+            {
+                document.getElementById("item").value = sessionStorage.getItem("item");
+                document.getElementById("price").value = sessionStorage.getItem("price");
+                document.getElementById("email").value = sessionStorage.getItem("email");
+                document.getElementById("address").value = sessionStorage.getItem("address");
+                document.getElementById("number").value = sessionStorage.getItem("number");
+                document.getElementById("date").value = sessionStorage.getItem("date");
+                document.getElementById("name").value = sessionStorage.getItem("name");
+                document.getElementById("CVV").value = sessionStorage.getItem("CVV");
+                document.getElementById("quantity").value = sessionStorage.getItem("quantity");
+                document.getElementById("total").value = sessionStorage.getItem("total");
+            }
+
+//Calculate the total cost per item and quantity selected
+            function calculate()
+            {
+                var cost = sessionStorage.getItem("cost");
+                var quantity = document.getElementById("quantity").value; 
+
+                var total = (cost * quantity);
+
+                document.getElementById("total").value = total; //calculate
+                sessionStorage.setItem("total", total); //store
+
+            }
+
+    </script>
+</head>
+
+<body onload="read()">
+    <div class="background">
+
+<!-- Header -->
+        <div class="Navigation-Bar" id="top">
+            <a href="HOME.html"><img src="images/logo.png" class="logo" alt="white coldplay logo"></a>
+            <ul>
+                <li><a href="HOME.html"><h3>HOME</h3></a><li>
+                    <li><a href="ABOUT.html"><h3>ABOUT</h3></a></li>
+                    <li></li>
+                    <li><a href="MUSIC.html"><h3>MUSIC</h3></a><li>
+                    <li><a href="TOUR.html"><h3>TOUR</h3></a><li>
+                    <li><a href="STORE.html"><h3>STORE</h3></a><li>
+                    <li><a href="CART2.html"><h3>CART</h3></a><li>
+            </ul>
+        </div>
+
+<!-- Order form -->
+        <form method="get" onsubmit="orderform(); return false"> 
+
+            <table class="reviews" id="orders">
+
+                <tr>
+                    <td><h3>Item:</h3></td>
+                    <td><input type="text" id="item" readonly></td>
+                </tr>
+
+                <tr>
+                    <td><h3>Price:</h3></td>
+                    <td><input type="text" id="price" readonly></td>
+                </tr>
+
+                <tr>
+                    <td><h3>Quantity:</h3></td>
+                    <td><input type="number" id="quantity" min="1" max="10" title="quantity of item selected" required oninput="calculate(); return false" inputmode></td>
+                </tr>
+
+                <tr>
+                    <td><h3>Total Price:</h3></td>
+                    <td><input id="total" readonly></td>
+                </tr>
+
+                <tr>
+                    <td><h3>Email:</h3></td>
+                    <td><input type="email" id="email" title="xxxxxxxx@xxxx.xxx" required autocomplete ></td>
+                </tr>
+
+                <tr>
+                    <td><h3>Address:</h3></td>
+                    <td><textarea id="address" required></textarea></td>
+                </tr>
+
+                <tr>
+                    <td><h3>Credit Card Details</h3></td>
+                    <td><h3>---------------------------------</h3></td>
+                </tr>
+
+                <tr>
+                    <td><h3>Card Number:</h3></td>
+                    <td><input type="number" id="number" min="0000000000000000" max="9999999999999999" title="16 digits" required autocomplete></td>
+                </tr>
+
+                <tr>
+                    <td><h3>Expiration Date:</h3></td>
+                    <td><input type="month" id="date" max="2030-12" min="2015-01" title="expiration date of the card" required></td>
+                </tr>
+
+                <tr>
+                    <td><h3>Card Name:</h3></td>
+                    <td><input type="text" id="name" title="name on the card" required autocomplete></td>
+                </tr>
+
+                <tr>
+                    <td><h3>CVV Number:</h3></td>
+                    <td><input type="number" id="CVV" min="000" max="999" title="3 digits on the back of card" required></td>
+                </tr>
+                
+
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit" id="rb"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input type="button" value="Retrieve Last Order" onclick="read()" id="rb"></td>
+                </tr>
+
+            </table>
+            <div class="break"><br><br><br><br><br></div>
+        </form>
+    </div>
+
+<!-- Footer -->
+    <div class="footer">
+        <table>
+            <tr>
+
+                <td><a href="#top"> 
+                        <img src="images/up-arrow-white.png" alt="back to top / white arrow icon"
+                        onmouseover="this.src='images/up-arrow-blue.png'"
+                        onmouseout="this.src='images/up-arrow-white.png'" class="social">
+                    </a>
+                </td>
+
+                    <td></td>
+                <td><p><b>&copy;2022 Coldplay all rights reserved.</b></p></td>
+                    <td></td>
+
+                <td>
+                    <a href="https://www.instagram.com/coldplay">
+                        <img src="images/instagram-white.png" alt="instagram / logo"
+                        onmouseover="this.src='images/instagram-blue.png'"
+                        onmouseout="this.src='images/instagram-white.png'" class="social">
+                    </a>
+
+                    <a href="https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU"> 
+                        <img src="images/spotify-white.png" alt="spotify / logo"
+                        onmouseover="this.src='images/spotify-blue.png'" 
+                        onmouseout="this.src='images/spotify-white.png'" class="social">
+                    </a>
+
+                    <a href="https://www.youtube.com/Coldplay">
+                        <img src="images/youtube-white.png" alt="youtube / logo"
+                        onmouseover="this.src='images/youtube-blue.png'"
+                        onmouseout="this.src='images/youtube-white.png'" class="social">
+                    </a>
+                </td>
+                
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
