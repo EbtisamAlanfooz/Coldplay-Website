@@ -1,4 +1,4 @@
 
 Primary endpoint:
 
-https://202002172project.z6.web.core.windows.net/HOME.html
+https://ebtisamalanfooz.github.io/Coldplay-Website/HOME.html
